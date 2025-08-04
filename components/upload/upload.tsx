@@ -1,16 +1,21 @@
 "use client";
 import { Input } from "@/components/ui/input";
+import { useFileUpload } from "@/lib/hooks/file-upload-hooks";
 import { Plus } from "lucide-react";
 import { useRef } from "react";
 
 export default function Upload() {
   const ref = useRef<HTMLInputElement>(null);
+  const formik = useFileUpload();
+
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
-      console.log(file);
+      formik.setFieldValue("file", file);
+      formik.handleSubmit();
     }
   };
+
   return (
     <div
       className="border-2 border-dashed border-slate-300 dark:border-slate-600 rounded-2xl p-8 hover:border-blue-400 dark:hover:border-blue-500 transition-colors duration-300 cursor-pointer"

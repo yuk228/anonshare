@@ -1,8 +1,8 @@
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import UrlArea from "@/app/upload/_components/url";
 import { CloudUpload } from "lucide-react";
-import Upload from "./_components/upload";
+import UrlArea from "@/components/upload/url";
+import Upload from "../../components/upload/upload";
 
 export default function Page() {
   return (
@@ -11,7 +11,7 @@ export default function Page() {
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">AnonShare</h1>
           <p className="text-slate-600 dark:text-slate-400 text-lg">
-            Upload your file with end to end encryption
+            Upload your file with end to end encryption 
           </p>
         </div>
 
@@ -40,6 +40,9 @@ export default function Page() {
                 <h3 className="font-semibold text-slate-900 dark:text-slate-100 mb-4">
                   Password Protection
                 </h3>
+                <p className="text-slate-600 dark:text-slate-400 mb-4">
+                  The file will be encrypted by default without a password.
+                </p>
                 <div className="space-y-4">
                   <Label>Enter Password</Label>
                   <Input type="password" placeholder="Password" className="w-full" />
